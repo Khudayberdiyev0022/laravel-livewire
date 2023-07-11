@@ -60,7 +60,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="form"  tabindex="-1" aria-labelledby="form" aria-hidden="true" wire:ignore>
+  <div class="modal fade" id="form"  tabindex="-1" aria-labelledby="form" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog">
       <div class="modal-content">
         <form wire:submit.prevent="createUser">
@@ -71,7 +71,10 @@
           <div class="modal-body">
             <div class="mb-3">
               <label class="form-label">Name</label>
-              <input type="text" wire:model.defer="form.name" class="form-control">
+              <input type="text" wire:model.defer="form.name" class="form-control @error('name') is-invalid @enderror">
+              @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
             <div class="mb-3">
               <label class="form-label">Email address</label>

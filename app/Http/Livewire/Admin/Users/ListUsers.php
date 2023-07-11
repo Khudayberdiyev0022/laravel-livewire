@@ -3,17 +3,12 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class ListUsers extends Component
 {
   public    $form  = [];
-  protected $rules = [
-    'form.name'     => 'required',
-    'form.email'    => 'required',
-    'form.password' => 'required|confirmed',
-
-  ];
 
   public function addNew()
   {
@@ -22,7 +17,12 @@ class ListUsers extends Component
 
   public function createUser()
   {
-    $data = $this->validate();
+    Validator::make($this->form, [
+      'name'     => 'required',
+      'email'    => 'required',
+      'password' => 'required|confirmed',
+    ])->validate();
+
     User::create($this->form);
   }
 

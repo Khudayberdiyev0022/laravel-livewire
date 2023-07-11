@@ -78,15 +78,24 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Email address</label>
-              <input type="text" wire:model.defer="form.email" class="form-control">
+              <input type="text" wire:model.defer="form.email" class="form-control @error('email') is-invalid @enderror">
+              @error('email')
+              <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
             <div class="mb-3">
               <label class="form-label">Password</label>
-              <input type="text" wire:model.defer="form.password"  class="form-control">
+              <input type="text" wire:model.defer="form.password"  class="form-control @error('password') is-invalid @enderror">
+              @error('password')
+              <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
             <div class="mb-3">
               <label class="form-label">Password Confirmation</label>
-              <input type="text" wire:model.defer="form.password_confirmation"  class="form-control">
+              <input type="text" wire:model.defer="form.password_confirmation"  class="form-control @error('password_confirmation') is-invalid @enderror">
+              @error('password_confirmation')
+              <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
           </div>
           <div class="modal-footer">

@@ -81,9 +81,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         $('#form').modal('show');
     });
 
-    window.addEventListener('hide-form', () => {
-        $('#form').modal('hide');
-    });
+    // window.addEventListener('hide-form', () => {
+    //     $('#form').modal('hide');
+    // });
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

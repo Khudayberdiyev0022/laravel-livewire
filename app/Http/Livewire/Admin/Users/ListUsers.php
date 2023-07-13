@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -17,13 +18,15 @@ class ListUsers extends Component
 
   public function createUser()
   {
-    Validator::make($this->form, [
+   $data =  Validator::make($this->form, [
       'name'     => 'required',
       'email'    => 'required',
       'password' => 'required|confirmed',
     ])->validate();
 
-    User::create($this->form);
+    $data['password'] = Hash::make($data['password']);
+
+    User::create($data);
   }
 
   public function render()

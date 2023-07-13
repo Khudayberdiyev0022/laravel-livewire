@@ -77,8 +77,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     };
 
     // show modal $this->dispatchBrowserEvent()
-    window.addEventListener('show-form', event => {
+    window.addEventListener('show-form', () => {
         $('#form').modal('show');
+    });
+
+    window.addEventListener('hide-form', () => {
+        $('#form').modal('hide');
     });
 
 </script>

@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('admin/dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('admin.dashboard');
 Route::get('admin/users', \App\Http\Livewire\Admin\Users\ListUsers::class)->name('admin.users');
+Route::get('admin/components', [\App\Http\Controllers\Admin\DashboardController::class, 'components']);
